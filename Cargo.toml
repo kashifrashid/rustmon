@@ -1,0 +1,22 @@
+[package]
+name = "rustmon"
+version = "0.1.0"
+edition = "2021"
+description = "Realtime Windows/Linux resource & network monitor with suspicious-activity (data exfiltration) detection and a TUI"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+clap = { version = "4", features = ["derive"] }
+netstat2 = "0.11"
+ratatui = "0.29"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sysinfo = "0.33"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
